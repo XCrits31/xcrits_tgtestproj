@@ -16,7 +16,7 @@ Instead of writing custom Python scripts for every batch, users can build augmen
 The project uses a decoupled architecture where Laravel handles the web interface, queues, and metadata, while a Python service processes the heavy image transformations.
 
 * **Backend:** Laravel 11 (PHP 8.2), Artisan Jobs (Queues), REST API
-* **AI & Processing:** Python 3.10, MONAI 1.x, PyTorch
+* **AI & Processing:** Python 3.10, MONAI, PyTorch
 * **Real-time Updates:** Pusher Channels, Laravel Echo
 * **Frontend:** Blade, Bootstrap 5, Vanilla JavaScript
 * **Database:** MySQL 8 + Eloquent ORM
@@ -24,7 +24,7 @@ The project uses a decoupled architecture where Laravel handles the web interfac
 
 ## How It Works (Under the Hood)
 
-1. **Upload:** User uploads medical images (e.g., DICOM converted to PNG/arrays).
+1. **Upload:** User uploads medical images.
 2. **Pipeline Setup:** User adjusts sliders for transformations.
 3. **Queue Processing:** When the user clicks "Regenerate", Laravel dispatches an **Artisan Job** to handle the bulk generation asynchronously, offloading the main thread.
 4. **Python Execution:** The background job triggers the Python script utilizing MONAI/PyTorch to perform heavy mathematical matrix deformations.
